@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_kakao_ui/models/user.dart';
+import 'package:flutter_kakao_ui/screens/profile_screen.dart';
 
 class ProfileCard extends StatelessWidget {
   final User user; //초기화 하기 위한 데이터. 바뀌지 않는 데이터임 !!!
@@ -11,7 +12,12 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileScreen(user: user))
+        );
+      },
       child: ListTile(
         leading: _avatar(),
         title: _title(),
